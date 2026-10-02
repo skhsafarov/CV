@@ -1,176 +1,200 @@
 /**
- * Sardor Safarov — Interactive CV Script
- * - Organic Liquid Bubble Goo Physics Animation (Native 60fps Physics)
- * - PDF Export & Print Integration
- * - Contact Quick-Copy with Toast Feedback
+ * SARDOR SAFAROV — CV JAVASCRIPT
+ * 
+ * Features:
+ * 1. Instant Bilingual Toggle (RU / EN) with LocalStorage persistence & Title/Aria update
+ * 2. Signature Gooey Avatar Bubbles Physics Animation (60fps, 0 external dependencies)
+ * 3. Print / Save as PDF Handler with keyboard shortcut integration
+ * 4. Interactive Copy-to-Clipboard with Button Feedback & Toast Notification
+ * 5. Keyboard shortcut: 'L' toggles language
  */
 
-(function () {
-    'use strict';
+document.addEventListener('DOMContentLoaded', () => {
 
-    // ---------------------------------------------------------
-    // 1. Organic Liquid Bubble Animation (Native 60fps Physics)
-    // ---------------------------------------------------------
+    // -------------------------------------------------------------------------
+    // 1. Instant Language Toggle (RU / EN)
+    // -------------------------------------------------------------------------
+    const btnLangRu = document.getElementById('btnLangRu');
+    const btnLangEn = document.getElementById('btnLangEn');
+    const printBtn = document.getElementById('printBtn');
+    const copyPhoneBtn = document.getElementById('copyPhoneBtn');
+    const copyEmailBtn = document.getElementById('copyEmailBtn');
+    const copyTgBtn = document.getElementById('copyTgBtn');
+
+    function setLanguage(lang) {
+        const targetLang = (lang === 'en') ? 'en' : 'ru';
+        document.body.setAttribute('data-lang', targetLang);
+
+        if (btnLangRu && btnLangEn) {
+            if (targetLang === 'ru') {
+                btnLangRu.classList.add('active');
+                btnLangEn.classList.remove('active');
+            } else {
+                btnLangEn.classList.add('active');
+                btnLangRu.classList.remove('active');
+            }
+        }
+
+        try {
+            localStorage.setItem('sardor_cv_lang', targetLang);
+        } catch (e) {}
+
+        // Update document title & metadata dynamically
+        if (targetLang === 'en') {
+            document.title = 'Sardor Safarov | CV — Platform Architect & Senior Backend Engineer';
+            if (printBtn) printBtn.setAttribute('title', 'Print or Save as PDF (Ctrl + P)');
+            if (copyPhoneBtn) {
+                copyPhoneBtn.setAttribute('title', 'Copy phone number');
+                copyPhoneBtn.setAttribute('aria-label', 'Copy phone number');
+            }
+            if (copyEmailBtn) {
+                copyEmailBtn.setAttribute('title', 'Copy email address');
+                copyEmailBtn.setAttribute('aria-label', 'Copy email address');
+            }
+            if (copyTgBtn) {
+                copyTgBtn.setAttribute('title', 'Copy Telegram handle');
+                copyTgBtn.setAttribute('aria-label', 'Copy Telegram handle');
+            }
+        } else {
+            document.title = 'Сардор Сафаров | Резюме — Platform Architect & Senior Backend Engineer';
+            if (printBtn) printBtn.setAttribute('title', 'Распечатать или сохранить в PDF (Ctrl + P)');
+            if (copyPhoneBtn) {
+                copyPhoneBtn.setAttribute('title', 'Скопировать телефон');
+                copyPhoneBtn.setAttribute('aria-label', 'Скопировать телефон');
+            }
+            if (copyEmailBtn) {
+                copyEmailBtn.setAttribute('title', 'Скопировать email');
+                copyEmailBtn.setAttribute('aria-label', 'Скопировать email');
+            }
+            if (copyTgBtn) {
+                copyTgBtn.setAttribute('title', 'Скопировать Telegram');
+                copyTgBtn.setAttribute('aria-label', 'Скопировать Telegram');
+            }
+        }
+    }
+
+    // Bind click events
+    if (btnLangRu) {
+        btnLangRu.addEventListener('click', () => setLanguage('ru'));
+    }
+    if (btnLangEn) {
+        btnLangEn.addEventListener('click', () => setLanguage('en'));
+    }
+
+    // Read stored preference or URL parameter (?lang=en)
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramLang = urlParams.get('lang');
+    let savedLang = 'ru';
+    try {
+        savedLang = localStorage.getItem('sardor_cv_lang') || 'ru';
+    } catch (e) {}
+
+    setLanguage(paramLang || savedLang);
+
+    // Keyboard shortcut: Press 'L' to toggle language
+    document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.isContentEditable) return;
+        if (e.key === 'l' || e.key === 'L' || e.key === 'д' || e.key === 'Д') {
+            const currentLang = document.body.getAttribute('data-lang') || 'ru';
+            setLanguage(currentLang === 'ru' ? 'en' : 'ru');
+        }
+    });
+
+    // -------------------------------------------------------------------------
+    // 2. Signature Gooey Avatar Bubbles Physics Animation (60fps, 0-dep)
+    // -------------------------------------------------------------------------
     const bubbles = [];
-    const totalBubbles = 11;
+    const numBubbles = 11;
 
-    for (let i = 0; i < totalBubbles; i++) {
+    for (let i = 0; i < numBubbles; i++) {
         const el = document.querySelector('.bubble' + i);
-        if (!el) continue;
-
-        const baseRadius = i === 0 ? 102 : 92;
-
-        bubbles.push({
-            el: el,
-            index: i,
-            baseRadius: baseRadius,
-            currentRadius: baseRadius,
-            targetRadius: baseRadius,
-            x: 171.5,
-            y: 175.6,
-            baseX: 171.5,
-            baseY: 175.6,
-            vx: 0,
-            vy: 0,
-            angle: (i / (totalBubbles - 1)) * Math.PI * 2,
-            orbitSpeed: 0.008 + (i * 0.002),
-            orbitDist: i === 0 ? 0 : 16 + (i * 5),
-            noiseOffset: i * 1.7,
-            phase: Math.random() * Math.PI * 2
-        });
-    }
-
-    let mouseX = 171.5;
-    let mouseY = 175.6;
-    let isHovered = false;
-    let time = 0;
-
-    const container = document.getElementById('bubbleContainer');
-
-    if (container) {
-        container.addEventListener('mousemove', function (e) {
-            const rect = container.getBoundingClientRect();
-            // Scale mouse coordinate into SVG viewBox 343 x 351
-            mouseX = ((e.clientX - rect.left) / rect.width) * 343;
-            mouseY = ((e.clientY - rect.top) / rect.height) * 351;
-            isHovered = true;
-        });
-
-        container.addEventListener('mouseleave', function () {
-            mouseX = 171.5;
-            mouseY = 175.6;
-            isHovered = false;
-        });
-
-        // Click ripple burst
-        container.addEventListener('click', function () {
-            bubbles.forEach((b, idx) => {
-                if (idx === 0) return;
-                const angle = Math.random() * Math.PI * 2;
-                const force = 12 + Math.random() * 18;
-                b.vx += Math.cos(angle) * force;
-                b.vy += Math.sin(angle) * force;
+        if (el) {
+            bubbles.push({
+                el: el,
+                speedX: 0.0012 + (i % 5) * 0.0004,
+                speedY: 0.0010 + ((i + 2) % 5) * 0.0005,
+                ampX: 13 + (i % 4) * 4,
+                ampY: 13 + ((i + 1) % 4) * 4,
+                phaseX: (i * Math.PI) / 5.5,
+                phaseY: (i * Math.PI) / 3.5
             });
-        });
+        }
     }
 
-    function animatePhysics() {
-        time += 0.02;
+    let startTime = performance.now();
 
-        bubbles.forEach((b) => {
-            if (b.index === 0) {
-                // Central anchor
-                const breathing = Math.sin(time * 1.5) * 4;
-                b.el.setAttribute('r', b.baseRadius + breathing);
-                return;
-            }
+    function animateBubbles(currentTime) {
+        const elapsed = currentTime - startTime;
 
-            // Target orbit calculation
-            b.angle += b.orbitSpeed;
-            const floatX = Math.cos(time + b.noiseOffset) * 12;
-            const floatY = Math.sin(time * 0.9 + b.noiseOffset) * 12;
+        for (let i = 0; i < bubbles.length; i++) {
+            const b = bubbles[i];
+            const x = Math.sin(elapsed * b.speedX + b.phaseX) * b.ampX;
+            const y = Math.cos(elapsed * b.speedY + b.phaseY) * b.ampY;
+            b.el.setAttribute('transform', `translate(${x.toFixed(2)}, ${y.toFixed(2)})`);
+        }
 
-            let targetX = b.baseX + Math.cos(b.angle) * b.orbitDist + floatX;
-            let targetY = b.baseY + Math.sin(b.angle) * b.orbitDist + floatY;
-
-            // Interactive attraction/repulsion on hover
-            if (isHovered) {
-                const dx = mouseX - b.x;
-                const dy = mouseY - b.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < 120 && dist > 1) {
-                    const pull = (120 - dist) * 0.08;
-                    b.vx += (dx / dist) * pull;
-                    b.vy += (dy / dist) * pull;
-                }
-            }
-
-            // Spring force towards target orbit
-            const ax = (targetX - b.x) * 0.04;
-            const ay = (targetY - b.y) * 0.04;
-
-            b.vx = (b.vx + ax) * 0.88; // Damping
-            b.vy = (b.vy + ay) * 0.88;
-
-            b.x += b.vx;
-            b.y += b.vy;
-
-            // Subtle dynamic radius oscillation
-            const rOffset = Math.sin(time * 2 + b.phase) * 5;
-            b.currentRadius = b.baseRadius + rOffset;
-
-            b.el.setAttribute('cx', b.x.toFixed(2));
-            b.el.setAttribute('cy', b.y.toFixed(2));
-            b.el.setAttribute('r', Math.max(30, b.currentRadius).toFixed(2));
-        });
-
-        requestAnimationFrame(animatePhysics);
+        requestAnimationFrame(animateBubbles);
     }
 
     if (bubbles.length > 0) {
-        requestAnimationFrame(animatePhysics);
+        requestAnimationFrame(animateBubbles);
     }
 
-    // ---------------------------------------------------------
-    // 2. Print / PDF Export Handler
-    // ---------------------------------------------------------
-    const btnPrint = document.getElementById('btnPrint');
-    if (btnPrint) {
-        btnPrint.addEventListener('click', function () {
+    // -------------------------------------------------------------------------
+    // 3. Print / Save as PDF Button
+    // -------------------------------------------------------------------------
+    if (printBtn) {
+        printBtn.addEventListener('click', () => {
             window.print();
         });
     }
 
-    // ---------------------------------------------------------
-    // 3. Share / Copy Link with Animated Toast Feedback
-    // ---------------------------------------------------------
-    const btnShare = document.getElementById('btnShare');
-    const toast = document.getElementById('toast');
+    // -------------------------------------------------------------------------
+    // 4. Copy to Clipboard with Toast Notification & Button Feedback
+    // -------------------------------------------------------------------------
+    const toast = document.getElementById('copyToast');
+    let toastTimeout = null;
 
     function showToast(message) {
         if (!toast) return;
         toast.textContent = message;
         toast.classList.add('show');
-        setTimeout(function () {
+
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
             toast.classList.remove('show');
-        }, 3200);
+        }, 2500);
     }
 
-    if (btnShare) {
-        btnShare.addEventListener('click', function () {
-            const url = window.location.href;
+    const copyButtons = document.querySelectorAll('.copy-btn');
+    copyButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const textToCopy = btn.getAttribute('data-copy');
+            if (!textToCopy) return;
+
+            const currentLang = document.body.getAttribute('data-lang') || 'ru';
+            const prefix = (currentLang === 'en') ? 'Copied to clipboard: ' : 'Скопировано в буфер: ';
+
+            function onSuccess() {
+                showToast(prefix + textToCopy);
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                }, 1800);
+            }
+
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(url)
-                    .then(() => showToast('Ссылка на резюме скопирована в буфер!'))
-                    .catch(() => copyFallback(url));
+                navigator.clipboard.writeText(textToCopy).then(onSuccess).catch(() => {
+                    fallbackCopy(textToCopy, prefix, btn);
+                });
             } else {
-                copyFallback(url);
+                fallbackCopy(textToCopy, prefix, btn);
             }
         });
-    }
+    });
 
-    function copyFallback(text) {
+    function fallbackCopy(text, prefix, btn) {
         const textarea = document.createElement('textarea');
         textarea.value = text;
         textarea.style.position = 'fixed';
@@ -179,11 +203,15 @@
         textarea.select();
         try {
             document.execCommand('copy');
-            showToast('Ссылка скопирована!');
+            showToast(prefix + text);
+            if (btn) {
+                btn.classList.add('copied');
+                setTimeout(() => btn.classList.remove('copied'), 1800);
+            }
         } catch (err) {
-            showToast('Не удалось скопировать: ' + window.location.href);
+            showToast(prefix + text);
         }
         document.body.removeChild(textarea);
     }
 
-})();
+});
