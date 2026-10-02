@@ -1,294 +1,661 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sardor Safarov — Platform Architect & Lead Backend Engineer</title>
+    <meta name="description" content="Резюме: Сардор Сафаров — Platform Architect, Lead / Senior Backend Engineer (.NET 10, Golang, ScyllaDB, Kafka, Kubernetes, GitOps, Highload Fintech).">
+    
+    <!-- Google Fonts: Inter, Plus Jakarta Sans, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="resume-wrapper">
-        <section class="profile section-padding">
-            <div class="container">
-                <div class="picture-resume-wrapper">
-                    <div class="picture-resume">
-                        <span><img src="ava.png" alt="" /></span>
-                        <svg version="1.1" viewBox="0 0 350 350">
 
-                            <defs>
-                                <filter id="goo">
-                                    <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
-                                    <feColorMatrix in="blur" mode="matrix"
-                                        values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -9" result="cm" />
-                                </filter>
-                            </defs>
+    <!-- Floating Action Toolbar (Screen View Only) -->
+    <nav class="floating-toolbar" aria-label="Панель быстрых действий">
+        <button class="toolbar-btn" id="btnPrint" title="Печать или сохранение в PDF (Ctrl + P)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Скачать PDF / Печать</span>
+        </button>
+        <button class="toolbar-btn" id="btnShare" title="Скопировать ссылку на резюме">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            <span>Поделиться</span>
+        </button>
+    </nav>
 
-                            <g filter="url(#goo)">
-
-                                <circle id="main_circle" class="st0" cx="171.5" cy="175.6" r="130" />
-
-                                <circle id="circle" class="bubble0 st1" cx="171.5" cy="175.6" r="122.7" />
-                                <circle id="circle" class="bubble1 st1" cx="171.5" cy="175.6" r="122.7" />
-                                <circle id="circle" class="bubble2 st1" cx="171.5" cy="175.6" r="122.7" />
-                                <circle id="circle" class="bubble3 st1" cx="171.5" cy="175.6" r="122.7" />
-                                <circle id="circle" class="bubble4 st1" cx="171.5" cy="175.6" r="122.7" />
-                                <circle id="circle" class="bubble5 st1" cx="171.5" cy="175.6" r="122.7" />
-                                <circle id="circle" class="bubble6 st1" cx="171.5" cy="175.6" r="122.7" />
-                                <circle id="circle" class="bubble7 st1" cx="171.5" cy="175.6" r="122.7" />
-                                <circle id="circle" class="bubble8 st1" cx="171.5" cy="175.6" r="122.7" />
-                                <circle id="circle" class="bubble9 st1" cx="171.5" cy="175.6" r="122.7" />
-                                <circle id="circle" class="bubble10 st1" cx="171.5" cy="175.6" r="122.7" />
-
-                            </g>
-                        </svg>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="name-wrapper">
-                    <h1>Sardor <br />Safarov</h1><!-- YOUR NAME AND LAST NAME  -->
-                </div>
-                <div class="clearfix"></div>
-                <div class="contact-info clearfix">
-                    <ul class="list-titles">
-                        <li>Телефон</li>
-                        <li>Почта</li>
-                        <li>Сайт</li>
-                        <li>Дом</li>
-                    </ul>
-                    <ul class="list-content ">
-                        <li><a href="tel:+998958228850" target="_blank">+998958228850</a></li>
-                        <!-- YOUR PHONE NUMBER  -->
-                        <li><a href="mailto:skhsafarov@gmail.com" target="_blank">skhsafarov@gmail.com</a></li>
-                        <!-- YOUR EMAIL -->
-                        <li><a href="https://skhsafarov.github.io/skhsafarov/"
-                                target="_blank">https://skhsafarov.github.io/skhsafarov/</a></li> <!-- YOUR WEBSITE  -->
-                        <li>Ташкент, Узбекистан</li> <!-- YOUR STATE AND COUNTRY  -->
-                    </ul>
-                </div>
-                <div class="contact-presentation">
-                    <!-- YOUR PRESENTATION RESUME  -->
-                    <p>Я мотивированный и целеустремленный C# программист, стремящийся к развитию в
-                        области информационных
-                        технологий. Ищу возможность присоединиться к инновационной компании, где смогу применить
-                        свои
-                        навыки и знания, а также учиться у опытных коллег для достижения совместных успехов.</p>
-                </div>
-                <div class="contact-social clearfix">
-                    <ul class="list-titles">
-                        <li>
-                            <p>GitHub </p>
-                        </li>
-                        <li>
-                            <p>LinkedIn </p>
-                        </li>
-                        <li>
-                            <p>Instagram </p>
-                        </li>
-                        <li>
-                            <p>Telegramm </p>
-                        </li>
-                    </ul>
-                    <ul class="list-content">
-                        <!-- REMEMBER TO PUT THE URL ON THE HREF TAG  -->
-                        <li>
-                            <p><a href="https://github.com/skhsafarov">@skhsafarov</a> </p>
-                        </li> <!-- YOUR TWITTER USER  -->
-                        <li>
-                            <p><a href="https://www.linkedin.com/in/sardorsafarov/">@sardorsafarov</a> </p>
-                        </li>
-                        <li>
-                            <p><a href="https://www.instagram.com/sardorsafarovs/">@sardorsafarovs</a> </p>
-                        </li>
-                        <li>
-                            <p><a href="https://t.me/sardorsafarovv">@sardorsafarovv</a> </p>
-                        </li> <!-- YOUR BEHANCE USER  -->
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="experience section-padding">
-            <div class="container">
-                <h3 class="experience-title">Experience</h3>
-
-                <div class="experience-wrapper">
-                    <div class="company-wrapper clearfix">
-                        <div class="experience-title">ДОЛ Истиклол</div> <!-- NAME OF THE COMPANY YOUWORK WITH  -->
-                        <div class="time">Июнь 2018 - Август 2018</div> <!-- THE TIME YOU WORK WITH THE COMPANY  -->
-                    </div>
-
-                    <div class="job-wrapper clearfix">
-                        <div class="experience-title">Диджей (аккомпаниатор)</div> <!-- JOB TITLE  -->
-                        <div class="company-description">
-                            <ul>
-                                <li>
-                                    <p>Обработка музыки для детских мероприятий </p>
-                                </li>
-                                <li>
-                                    <p>Подбор плейлистов для вечеринок </p>
-                                </li>
-                                <li>
-                                    <p>Организация вечерних просмотров фильмов для детей </p>
-                                </li>
-                                <li>
-                                    <p>Настройка музыкальной аппаратуры </p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="company-wrapper clearfix">
-                        <div class="experience-title">KFC</div> <!-- NAME OF THE COMPANY YOUWORK WITH  -->
-                        <div class="time">Июнь 2022 - Август 2022</div> <!-- THE TIME YOU WORK WITH THE COMPANY  -->
-                    </div>
-
-                    <div class="job-wrapper clearfix">
-                        <div class="experience-title">Кассир</div> <!-- JOB TITLE  -->
-                        <div class="company-description">
-                            <ul>
-                                <li>
-                                    <p>Обслуживание клиентов ресторана </p>
-                                </li>
-                                <li>
-                                    <p>Приём заказов и оплаты в онлайн кассе R keeper</p>
-                                </li>
-                                <li>
-                                    <p>Выдача заказов клиентам </p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="company-wrapper clearfix">
-                        <div class="experience-title">Высшая школа экономики</div>
-                        <div class="time">Январь 2023 - Март 2023</div>
-                    </div>
-
-                    <div class="job-wrapper clearfix">
-                        <div class="experience-title">Волонтёр</div> <!-- JOB TITLE  -->
-                        <div class="company-description">
-                            <ul>
-                                <li>
-                                    <p>Организация образовательных мероприятий, семинаров и воркшопов, которые расширяют
-                                        учебные возможности студентов и обогащают их знания.</p>
-                                </li>
-                                <li>
-                                    <p>Помощь в проведении конференций и студенческих проектов, поддерживая активное
-                                        научное сообщество.</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-                <!--Skill experience-->
-
-                <h3 class="experience-title">Образование</h3>
-
-                <div class="experience-wrapper">
-                    <div class="company-wrapper clearfix">
-                        <div class="experience-title">Высшая школа экономики</div>
-                        <div class="time">Сен 2020 - Июнь 2023</div> <!-- THE TIME YOU WORK WITH THE COMPANY  -->
-                    </div>
-
-                    <div class="job-wrapper clearfix">
-                        <div class="experience-title">Факультет компьютерных наук</div> <!-- JOB TITLE  -->
-                        <div class="company-description">
-                            <p>
-                                Образовательная программа «Программная инженерия»
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-wrapper clearfix">
-                    <h3 class="section-title">Технологии</h3> <!-- DESCRIPTION OF YOUR HOBBIES -->
-                    <ul>
-                        <li>
-                            <p>Google Workspace, MS Office </p>
-                        </li>
-                        <li>
-                            <p>XAML, HTML, CSS, MD </p>
-                        </li>
-                        <li>
-                            <p>MS SQL Server, PostgreSQL </p>
-                        </li>
-                        <li>
-                            <p>ASP.NET, MVC, MVVM, REST API, gRPC </p>
-                        </li>
-                        <li>
-                            <p>WinForms, WPF, WinUI 3, Blazor, .NET MAUI</p>
-                        </li>
-                        <li>
-                            <p>C#, C++, C, Java, JavaScript, Assembly </p>
-                        </li>
-                        <li>
-                            <p>Git, PowerShell, Bash
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="section-wrapper clearfix">
-                    <h3 class="section-title">Skills</h3> <!-- YOUR SET OF SKILLS  -->
-                    <ul>
-                        <li class="skill-percentage">
-                            <p>C# </p>
-                        </li>
-                        <li class="skill-percentage">
-                            <p>C++ </p>
-                        </li>
-                        <li class="skill-percentage">
-                            <p>C </p>
-                        </li>
-                        <li class="skill-percentage">
-                            <p>Java </p>
-                        </li>
-                        <li class="skill-percentage">
-                            <p>HTML / HTML5</p>
-                        </li>
-                        <li class="skill-percentage">
-                            <p>CSS / CSS3 </p>
-                        </li>
-                        <li class="skill-percentage">
-                            <p>JavaScript </p>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <div class="section-wrapper clearfix">
-                    <h3 class="section-title">Hobbies</h3> <!-- DESCRIPTION OF YOUR HOBBIES -->
-                    <ul>
-                        <li>
-                            <p>Моя страсть - вольная борьба. Это увлекательное спортивное состязание, развивает мою
-                                физическую
-                                форму, силу и настойчивость. Борьба на ковре - способ выразить себя и стратегическое
-                                мышление.
-                            </p>
-                        </li>
-                        <li>
-                            <p>Моя страсть - киберспорт, играю в Dota 2. Здесь проявляю тактические умения, развиваю
-                                чувство
-                                командной игры. Онлайн-турниры и матчи - источник постоянного совершенствования и новых
-                                знакомств.</p>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-        </section>
-
-        <div class="clearfix"></div>
-
-
-        <script src="script.js"></script>
+    <!-- Interactive Copy Feedback Toast -->
+    <div id="toast" class="toast" role="alert" aria-live="polite">
+        Ссылка скопирована в буфер обмена!
     </div>
 
+    <!-- Main Resume Container -->
+    <div class="resume-wrapper">
+
+        <!-- ================================================================= -->
+        <!-- LEFT COLUMN: Frosted Glass Sidebar (Identity, Contacts, Summary)   -->
+        <!-- ================================================================= -->
+        <aside class="sidebar">
+
+            <!-- Interactive Liquid Bubble Mascot / Avatar -->
+            <div class="avatar-section">
+                <div class="liquid-bubble" id="bubbleContainer" title="Интерактивная физическая модель пузырей">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 343 351">
+                        <defs>
+                            <linearGradient id="liquid-emerald-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#10b981" />
+                                <stop offset="50%" stop-color="#059669" />
+                                <stop offset="100%" stop-color="#06b6d4" />
+                            </linearGradient>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+                            </filter>
+                        </defs>
+                        <g filter="url(#goo)">
+                            <circle class="bubble0 st0" cx="171.5" cy="175.6" r="102" fill="url(#liquid-emerald-grad)" />
+                            <circle class="bubble1 st1" cx="171.5" cy="175.6" r="92" />
+                            <circle class="bubble2 st1" cx="171.5" cy="175.6" r="92" />
+                            <circle class="bubble3 st1" cx="171.5" cy="175.6" r="92" />
+                            <circle class="bubble4 st1" cx="171.5" cy="175.6" r="92" />
+                            <circle class="bubble5 st1" cx="171.5" cy="175.6" r="92" />
+                            <circle class="bubble6 st1" cx="171.5" cy="175.6" r="92" />
+                            <circle class="bubble7 st1" cx="171.5" cy="175.6" r="92" />
+                            <circle class="bubble8 st1" cx="171.5" cy="175.6" r="92" />
+                            <circle class="bubble9 st1" cx="171.5" cy="175.6" r="92" />
+                            <circle class="bubble10 st1" cx="171.5" cy="175.6" r="92" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Name & Professional Headline -->
+            <div class="name-wrapper">
+                <h1>Sardor<br>Safarov</h1>
+                <div class="headline-badge">
+                    <span>Platform Architect & Lead Backend</span>
+                </div>
+                <div class="status-indicator">
+                    <span class="pulse-beacon"></span>
+                    <span>Staff / Lead / Advisory открыт</span>
+                </div>
+            </div>
+
+            <!-- Contacts Section with SVG Icons -->
+            <div class="sidebar-block">
+                <h3 class="side-title">Контакты</h3>
+                <ul class="contact-list">
+                    <li class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div class="contact-data">
+                            <span class="contact-label">Телефон</span>
+                            <span class="contact-val"><a href="tel:+998958228850">+998 95 822-88-50</a></span>
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="contact-data">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-val"><a href="mailto:skhsafarov@gmail.com">skhsafarov@gmail.com</a></span>
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </div>
+                        <div class="contact-data">
+                            <span class="contact-label">Telegram</span>
+                            <span class="contact-val"><a href="https://t.me/sardorsafarovv" target="_blank" rel="noopener">@sardorsafarovv</a></span>
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </div>
+                        <div class="contact-data">
+                            <span class="contact-label">SaaS Платформа</span>
+                            <span class="contact-val"><a href="https://socratic.uz" target="_blank" rel="noopener">socratic.uz</a></span>
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="contact-data">
+                            <span class="contact-label">Локация</span>
+                            <span class="contact-val">Ташкент, Узбекистан</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Profiles Section -->
+            <div class="sidebar-block">
+                <h3 class="side-title">Профили</h3>
+                <ul class="social-list">
+                    <li class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </div>
+                        <div class="contact-data">
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-val"><a href="https://github.com/skhsafarov" target="_blank" rel="noopener">github.com/skhsafarov</a></span>
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <div class="contact-icon-box">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </div>
+                        <div class="contact-data">
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-val"><a href="https://www.linkedin.com/in/sardorsafarov/" target="_blank" rel="noopener">linkedin.com/in/sardorsafarov</a></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Executive Summary -->
+            <div class="sidebar-block">
+                <h3 class="side-title">О себе</h3>
+                <div class="about-text">
+                    <p>
+                        <strong>Founder & Platform Architect</strong> в Socratic, Senior Backend & Distributed Systems Engineer с академической базой в программной инженерии (<strong>ФКН НИУ ВШЭ, Москва, 2019–2023</strong>).
+                    </p>
+                    <p>
+                        Более <strong>4 лет</strong> проектирую, разрабатываю и вывожу в production критически важные высоконагруженные финтех-сервисы, процессинги платежей, системы предотвращения мошенничества (Antifraud), интеграционные шины и отказоустойчивую Cloud-Native инфраструктуру на базе Kubernetes и GitOps.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Languages with visual dots -->
+            <div class="sidebar-block">
+                <h3 class="side-title">Языки</h3>
+                <ul class="lang-list">
+                    <li class="lang-item">
+                        <span class="lang-name">Русский</span>
+                        <div class="lang-meta">
+                            <span>Родной</span>
+                            <div class="lang-dots" title="Родной (5/5)">
+                                <span class="lang-dot active"></span>
+                                <span class="lang-dot active"></span>
+                                <span class="lang-dot active"></span>
+                                <span class="lang-dot active"></span>
+                                <span class="lang-dot active"></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="lang-item">
+                        <span class="lang-name">English</span>
+                        <div class="lang-meta">
+                            <span>C1 / Tech Working</span>
+                            <div class="lang-dots" title="C1 (4/5)">
+                                <span class="lang-dot active"></span>
+                                <span class="lang-dot active"></span>
+                                <span class="lang-dot active"></span>
+                                <span class="lang-dot active"></span>
+                                <span class="lang-dot"></span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="lang-item">
+                        <span class="lang-name">O'zbek</span>
+                        <div class="lang-meta">
+                            <span>Свободный</span>
+                            <div class="lang-dots" title="Свободный (5/5)">
+                                <span class="lang-dot active"></span>
+                                <span class="lang-dot active"></span>
+                                <span class="lang-dot active"></span>
+                                <span class="lang-dot active"></span>
+                                <span class="lang-dot active"></span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </aside>
+
+        <!-- ================================================================= -->
+        <!-- RIGHT COLUMN: Main Experience, Metrics, Education & Competencies -->
+        <!-- ================================================================= -->
+        <main class="main-content">
+
+            <!-- Executive Impact KPI Strip -->
+            <section class="metrics-strip" aria-label="Ключевые метрики и масштаб">
+                <div class="metric-card">
+                    <div class="metric-val">4+ года</div>
+                    <div class="metric-label">Highload & Fintech</div>
+                    <div class="metric-desc">Архитектура и Core-бэкенд</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-val">>1 500 TPS</div>
+                    <div class="metric-label">Пиковая нагрузка</div>
+                    <div class="metric-desc">CardXabar транзакции</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-val">&lt;50 мс</div>
+                    <div class="metric-label">Antifraud SLA</div>
+                    <div class="metric-desc">p99 скоринг решений</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-val">99.99%</div>
+                    <div class="metric-label">Banking Uptime</div>
+                    <div class="metric-desc">Camunda BPM в ANORBANK</div>
+                </div>
+            </section>
+
+            <!-- SECTION 1: PROFESSIONAL EXPERIENCE -->
+            <section class="content-section" aria-labelledby="experience-heading">
+                <div class="section-header">
+                    <h2 class="section-title" id="experience-heading">
+                        <span class="section-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                            </svg>
+                        </span>
+                        Опыт работы
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="timeline">
+
+                    <!-- 1. Socratic (Present) -->
+                    <article class="timeline-item active">
+                        <div class="timeline-node">
+                            <div class="timeline-node-inner"></div>
+                        </div>
+                        <div class="exp-card">
+                            <header class="card-header">
+                                <div>
+                                    <h3 class="role-title">Founder, Platform Architect & Lead Software Engineer</h3>
+                                    <div class="company-meta">
+                                        <a href="https://socratic.uz" target="_blank" rel="noopener" class="company-name">
+                                            Socratic
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                        </a>
+                                        <span class="industry-pill">SaaS & Retail Automation</span>
+                                    </div>
+                                </div>
+                                <div class="date-pill">
+                                    <span>Январь 2024 — настоящее время</span>
+                                    <span class="date-duration">(2 года 10 мес.)</span>
+                                </div>
+                            </header>
+
+                            <p class="exp-lead">
+                                Высоконагруженная B2B SaaS-экосистема для ритейла и сферы услуг: сенсорные POS-терминалы, интерактивные схемы залов, смарт-киоски самообслуживания, процессинг платежей и фискализация Soliq ОФД.
+                            </p>
+
+                            <div class="block-subtitle">Архитектура платформы и разработка:</div>
+                            <ul class="points-list">
+                                <li>Спроектировал масштабируемую federated-архитектуру на <strong>.NET 10 (C# 13, Native AOT, Blazor Web App InteractiveAuto)</strong> по принципам Clean Architecture и Domain-Driven Design (DDD).</li>
+                                <li>Разработал распределенное NoSQL-хранилище на <strong>ScyllaDB</strong> (Query-driven design под строгие SLA и экстремально высокий RPS на запись транзакций).</li>
+                                <li>Спроектировал Event-Driven архитектуру на <strong>Apache Kafka</strong>: потоковая обработка чеков, кассовых смен, транзакций и асинхронный аудит.</li>
+                                <li>Организовал многоуровневое кэширование и распределенный стейт на <strong>Redis</strong>, а также объектное хранилище на <strong>MinIO (S3)</strong>.</li>
+                                <li>Интегрировал векторную базу данных <strong>Qdrant</strong> и RAG-пайплайн для семантического каталожного поиска и AI-ассистентов.</li>
+                            </ul>
+
+                            <div class="block-subtitle">Cloud-Native, GitOps & Platform Engineering:</div>
+                            <ul class="points-list">
+                                <li>Развернул multi-node Kubernetes-кластер в Hetzner Cloud с нуля по методологии <strong>GitOps (ArgoCD + ApplicationSet + Kustomize)</strong>.</li>
+                                <li>Внедрил прогрессивную доставку (<strong>Argo Rollouts</strong>) с канареечным (Canary) и Blue-Green деплоем с автоматическим анализом метрик и rollback.</li>
+                                <li>Настроил Service Mesh на базе <strong>Istio</strong>: сквозное mTLS-шифрование, канареечная маршрутизация и circuit breaker.</li>
+                                <li>Организовал централизованное управление секретами через <strong>HashiCorp Vault</strong> и External Secrets Operator (ESO).</li>
+                                <li>Построил комплексную Observability (<strong>Prometheus, Grafana, Loki, Tempo</strong>) для распределенного distributed tracing от POS-терминала до ScyllaDB.</li>
+                            </ul>
+
+                            <div class="tech-row">
+                                <span class="tech-pill accent">.NET 10 (Native AOT)</span>
+                                <span class="tech-pill accent">Golang</span>
+                                <span class="tech-pill accent">ScyllaDB</span>
+                                <span class="tech-pill cyan">Kubernetes</span>
+                                <span class="tech-pill cyan">ArgoCD & Rollouts</span>
+                                <span class="tech-pill cyan">Istio Service Mesh</span>
+                                <span class="tech-pill">HashiCorp Vault</span>
+                                <span class="tech-pill">Apache Kafka</span>
+                                <span class="tech-pill">Redis</span>
+                                <span class="tech-pill">PostgreSQL</span>
+                                <span class="tech-pill">Tempo & Loki</span>
+                                <span class="tech-pill">Prometheus & Grafana</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 2. Rahmat -->
+                    <article class="timeline-item">
+                        <div class="timeline-node">
+                            <div class="timeline-node-inner"></div>
+                        </div>
+                        <div class="exp-card">
+                            <header class="card-header">
+                                <div>
+                                    <h3 class="role-title">Lead / Senior Backend Engineer (.NET / Cloud & Highload)</h3>
+                                    <div class="company-meta">
+                                        <span class="company-name">Rahmat</span>
+                                        <span class="industry-pill">Fintech & Delivery Infrastructure</span>
+                                        <span class="industry-pill">cc.safiadelivery.com</span>
+                                    </div>
+                                </div>
+                                <div class="date-pill">
+                                    <span>Октябрь 2025 — Май 2026</span>
+                                    <span class="date-duration">(8 мес.)</span>
+                                </div>
+                            </header>
+
+                            <p class="exp-lead">
+                                Разработка core-платформы финтех-экосистемы Rahmat и высоконагруженной системы доставки Safia Delivery (cc.safiadelivery.com).
+                            </p>
+
+                            <ul class="points-list">
+                                <li><strong>Self-Service Payment Kiosks:</strong> спроектировал и создал надежное ПО для распределенной сети платежных терминалов и киосков самообслуживания. Реализовал низкоуровневые протоколы связи с аппаратными купюроприемниками (CashCode / MEI), валидацию купюр и отказоустойчивость.</li>
+                                <li><strong>ACID Фискализация:</strong> разработал модуль фискализации платежей и интеграции с платежными шлюзами со строгой транзакционностью и защитой от двойных списаний.</li>
+                                <li><strong>Safia Delivery Backend (.NET / C#):</strong> разработал и масштабировал микросервисы доставки под пиковые нагрузки (>10 000 активных заказов в сутки), конвейер распределения курьеров и онлайн-геотрекинг.</li>
+                                <li><strong>Оптимизация производительности:</strong> оптимизировал схемы PostgreSQL и Redis-кэширование, добившись снижения p99 времени отклика API на 45%.</li>
+                                <li><strong>Observability:</strong> внедрил структурированное логирование (Serilog), телеметрию и метрики в Grafana, автоматизировал CI/CD-пайплайны.</li>
+                            </ul>
+
+                            <div class="tech-row">
+                                <span class="tech-pill accent">C# (.NET Core)</span>
+                                <span class="tech-pill">PostgreSQL</span>
+                                <span class="tech-pill">Redis</span>
+                                <span class="tech-pill">RabbitMQ</span>
+                                <span class="tech-pill">WebSockets</span>
+                                <span class="tech-pill cyan">Docker</span>
+                                <span class="tech-pill">CashCode / MEI</span>
+                                <span class="tech-pill">Serilog & Grafana</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 3. ANORBANK -->
+                    <article class="timeline-item">
+                        <div class="timeline-node">
+                            <div class="timeline-node-inner"></div>
+                        </div>
+                        <div class="exp-card">
+                            <header class="card-header">
+                                <div>
+                                    <h3 class="role-title">Senior Backend & Integration Engineer / BPM Architect</h3>
+                                    <div class="company-meta">
+                                        <span class="company-name">ANORBANK</span>
+                                        <span class="industry-pill">Core Banking & Digital Bank Platform</span>
+                                    </div>
+                                </div>
+                                <div class="date-pill">
+                                    <span>Октябрь 2024 — Июнь 2025</span>
+                                    <span class="date-duration">(9 мес.)</span>
+                                </div>
+                            </header>
+
+                            <p class="exp-lead">
+                                Проектирование и оркестрация критических финансовых бизнес-процессов первого цифрового коммерческого банка Узбекистана (Anor Bank).
+                            </p>
+
+                            <ul class="points-list">
+                                <li><strong>Миграция Legacy на Camunda BPM:</strong> возглавил и провел архитектурную миграцию высоконагруженных банковских сквозных процессов (выпуск карт, открытие счетов, кредитный конвейер, межбанковские переводы) из устаревшей ELMA3 на распределенный движок Camunda BPM.</li>
+                                <li><strong>Рефакторинг и декомпозиция BPMN 2.0:</strong> спроектировал паттерны распределенных транзакций (Saga Pattern) с механизмами компенсаций, идемпотентностью и dead-letter queue (DLQ) очередями повторных попыток.</li>
+                                <li><strong>Интеграционный слой на .NET Core:</strong> разработал высокопроизводительные адаптеры для интеграции Camunda с АБС (автоматизированная банковская система), процессингом, скорингом, CRM и SMS-шлюзами, снизив сквозную задержку на 35%.</li>
+                                <li><strong>Zero-Downtime Migration:</strong> обеспечил параллельную работу старой и новой систем с теневым запуском (shadow traffic) без прерывания банковского обслуживания клиентов.</li>
+                            </ul>
+
+                            <div class="tech-row">
+                                <span class="tech-pill accent">C# (.NET Core)</span>
+                                <span class="tech-pill accent">Camunda BPM (BPMN 2.0)</span>
+                                <span class="tech-pill">Saga Pattern & DLQ</span>
+                                <span class="tech-pill">Core Banking (АБС)</span>
+                                <span class="tech-pill">PostgreSQL</span>
+                                <span class="tech-pill">RabbitMQ</span>
+                                <span class="tech-pill">Apache Kafka</span>
+                                <span class="tech-pill">REST / gRPC / SOAP</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 4. Plum Technologies -->
+                    <article class="timeline-item">
+                        <div class="timeline-node">
+                            <div class="timeline-node-inner"></div>
+                        </div>
+                        <div class="exp-card">
+                            <header class="card-header">
+                                <div>
+                                    <h3 class="role-title">Senior / Lead Backend Engineer (Fintech & Antifraud Systems)</h3>
+                                    <div class="company-meta">
+                                        <span class="company-name">Plum Technologies (UZCARD)</span>
+                                        <span class="industry-pill">Fintech Infrastructure & Security</span>
+                                    </div>
+                                </div>
+                                <div class="date-pill">
+                                    <span>Апрель 2024 — Ноябрь 2024</span>
+                                    <span class="date-duration">(8 мес.)</span>
+                                </div>
+                            </header>
+
+                            <p class="exp-lead">
+                                Разработка отказоустойчивых backend-сервисов в экосистеме платежных решений и финтех-инфраструктуры UZCARD.
+                            </p>
+
+                            <ul class="points-list">
+                                <li><strong>Antifraud & Workflow Processing (workflow.myuzcard.uz):</strong> автоматизированная система онлайн-скоринга и предотвращения карточного мошенничества. Разработал сервисы проверки динамических правил с временем принятия решения &lt;50 мс на базе асинхронных конвейеров RabbitMQ / Kafka.</li>
+                                <li><strong>Схема данных и транзакционное хранилище:</strong> спроектировал структуры хранения событий безопасности в PostgreSQL с партиционированием и оптимизацией под интенсивную запись.</li>
+                                <li><strong>AgroTerra Enterprise Platform:</strong> fintech-платформа учета и финансовых взаиморасчетов; внедрил практики Clean Architecture, провел рефакторинг ключевых сервисов и настроил Docker CI/CD пайплайны.</li>
+                            </ul>
+
+                            <div class="tech-row">
+                                <span class="tech-pill accent">C# (.NET Core)</span>
+                                <span class="tech-pill accent">Golang</span>
+                                <span class="tech-pill">Antifraud Engine</span>
+                                <span class="tech-pill">PostgreSQL</span>
+                                <span class="tech-pill">Redis</span>
+                                <span class="tech-pill">RabbitMQ & Kafka</span>
+                                <span class="tech-pill">gRPC / REST</span>
+                                <span class="tech-pill cyan">Docker CI/CD</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 5. Genesis Innovation -->
+                    <article class="timeline-item">
+                        <div class="timeline-node">
+                            <div class="timeline-node-inner"></div>
+                        </div>
+                        <div class="exp-card">
+                            <header class="card-header">
+                                <div>
+                                    <h3 class="role-title">Senior Backend Developer / Golang & .NET (Highload Fintech)</h3>
+                                    <div class="company-meta">
+                                        <span class="company-name">Genesis Innovation (UZCARD)</span>
+                                        <span class="industry-pill">Highload Payment Notification System</span>
+                                    </div>
+                                </div>
+                                <div class="date-pill">
+                                    <span>Сентябрь 2022 — Апрель 2024</span>
+                                    <span class="date-duration">(1 год 8 мес.)</span>
+                                </div>
+                            </header>
+
+                            <p class="exp-lead">
+                                Разработка и масштабирование высоконагруженных backend-сервисов финтех-экосистемы национальной платежной системы UZCARD.
+                            </p>
+
+                            <ul class="points-list">
+                                <li><strong>CardXabar (cardxabar.uz):</strong> критический сервис мгновенных уведомлений (SMS, Push, Telegram, Email), контроля лимитов и онлайн-мониторинга транзакционной активности по банковским картам для миллионов держателей карт в Узбекистане.</li>
+                                <li><strong>High Throughput & SLA:</strong> разработал микросервисы на Golang и .NET, выдерживающие sustained-нагрузки &gt;1500 TPS с p99 задержкой &lt;80 мс.</li>
+                                <li><strong>Гарантированная доставка сообщений:</strong> спроектировал архитектуру с Apache Kafka и RabbitMQ, предотвращающую потерю транзакционных уведомлений при пиках и сбоях. Оптимизировал шардированный кэш на Redis и шардинг PostgreSQL.</li>
+                            </ul>
+
+                            <div class="tech-row">
+                                <span class="tech-pill accent">Golang</span>
+                                <span class="tech-pill accent">C# (.NET Core)</span>
+                                <span class="tech-pill">>1500 TPS Highload</span>
+                                <span class="tech-pill">Apache Kafka</span>
+                                <span class="tech-pill">RabbitMQ</span>
+                                <span class="tech-pill">PostgreSQL</span>
+                                <span class="tech-pill">Redis</span>
+                                <span class="tech-pill cyan">Docker</span>
+                                <span class="tech-pill">Prometheus & Grafana</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- SECTION 2: EDUCATION -->
+            <section class="content-section" aria-labelledby="education-heading">
+                <div class="section-header">
+                    <h2 class="section-title" id="education-heading">
+                        <span class="section-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </span>
+                        Образование
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="edu-glass-card">
+                    <div class="edu-top-row">
+                        <div>
+                            <h3 class="edu-institution">Национальный исследовательский университет «Высшая школа экономики» (НИУ ВШЭ, Москва)</h3>
+                            <div class="edu-faculty">Факультет компьютерных наук (ФКН) · Бакалавр, Программная инженерия</div>
+                        </div>
+                        <div class="edu-badge">2019 — 2023</div>
+                    </div>
+                    <p class="edu-desc">
+                        Специализация: Архитектура распределенных систем, высоконагруженная разработка, параллельные вычисления, алгоритмы и структуры данных, управление жизненным циклом корпоративного ПО.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION 3: CORE COMPETENCIES -->
+            <section class="content-section" aria-labelledby="skills-heading">
+                <div class="section-header">
+                    <h2 class="section-title" id="skills-heading">
+                        <span class="section-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                        </span>
+                        Технологический стек и компетенции
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-card-title">
+                            <span class="skill-card-icon">⚡</span>
+                            Языки & Среда выполнения
+                        </div>
+                        <p class="skill-card-content">
+                            C# (.NET 10, .NET 8/9, Native AOT, ASP.NET Core), Golang, TypeScript, JavaScript, SQL.
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-card-title">
+                            <span class="skill-card-icon">🏛</span>
+                            Архитектура & Паттерны
+                        </div>
+                        <p class="skill-card-content">
+                            Clean Architecture, Domain-Driven Design (DDD), Event-Driven Architecture (EDA), CQRS, Event Sourcing, Saga Pattern, Outbox, Camunda BPMN 2.0, Zero-Downtime Migration.
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-card-title">
+                            <span class="skill-card-icon">🗄</span>
+                            Базы данных & Streaming
+                        </div>
+                        <p class="skill-card-content">
+                            ScyllaDB (Query-driven NoSQL), PostgreSQL (партиционирование, оптимизация индексов), Redis (state, кэш, distributed locks), MinIO (S3), Qdrant (Vector DB), Apache Kafka, RabbitMQ.
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-card-title">
+                            <span class="skill-card-icon">☁️</span>
+                            Cloud-Native, DevOps & GitOps
+                        </div>
+                        <p class="skill-card-content">
+                            Kubernetes, Docker, ArgoCD (GitOps, ApplicationSet), Argo Rollouts (Canary / Blue-Green), Istio Service Mesh, HashiCorp Vault, External Secrets Operator, Helm, Linux.
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-card-title">
+                            <span class="skill-card-icon">📊</span>
+                            Observability & Безопасность
+                        </div>
+                        <p class="skill-card-content">
+                            Prometheus, Grafana, Loki, Tempo (Distributed Tracing), OpenTelemetry, Serilog, mTLS, Antifraud Scoring, PCI DSS practices, Soliq OFD fiscalization.
+                        </p>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-card-title">
+                            <span class="skill-card-icon">🔌</span>
+                            Интеграции & Протоколы
+                        </div>
+                        <p class="skill-card-content">
+                            gRPC, Protobuf, REST API, WebSockets, SOAP/WCF, Core Banking (АБС), UZCARD / HUMO платежные шлюзы, аппаратные купюроприемники CashCode / MEI.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
